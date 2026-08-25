@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Родник — литературное объединение г. Майского</title>
+  <meta name="description" content="Сайт о литературном объединении «Родник» при центральной библиотеке г. Майского: история, поэты и авторская поэзия." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root,[data-theme="light"]{
+      --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);--text-sm:clamp(.875rem,.8rem + .35vw,1rem);
+      --text-base:clamp(1rem,.95rem + .25vw,1.125rem);--text-lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+      --text-3xl:clamp(2.5rem,1rem + 4vw,5rem);
+      --space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;
+      --space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;
+      --color-bg:#f6f1e8;--color-surface:#fbf7f0;--color-surface-2:#f1ebe2;--color-surface-offset:#e8dfd2;
+      --color-border:#d6cab9;--color-divider:#ddd2c4;
+      --color-text:#2b2119;--color-text-muted:#6d6257;--color-text-faint:#a29688;
+      --color-primary:#6f4b2e;--color-primary-hover:#55371f;--color-primary-highlight:#e5d5c4;
+      --radius-sm:.375rem;--radius-md:.65rem;--radius-lg:1rem;--radius-xl:1.5rem;--radius-full:9999px;
+      --shadow-sm:0 1px 2px rgba(43,33,25,.06);--shadow-md:0 12px 30px rgba(43,33,25,.1);
+      --font-display:'Literata',Georgia,serif;--font-body:'Manrope',Arial,sans-serif;
+      --content:1180px;--content-narrow:740px;
+    }
+    [data-theme="dark"]{
+      --color-bg:#171311;--color-surface:#211b18;--color-surface-2:#29221f;--color-surface-offset:#312924;
+      --color-border:#4a3f38;--color-divider:#3b322d;
+      --color-text:#efe5da;--color-text-muted:#b7aa9d;--color-text-faint:#87796d;
+      --color-primary:#cf9c69;--color-primary-hover:#ddb183;--color-primary-highlight:#3f332a;
+      --shadow-sm:0 1px 2px rgba(0,0,0,.25);--shadow-md:0 14px 36px rgba(0,0,0,.35);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:4rem}
+    body{margin:0;min-height:100vh;font-family:var(--font-body);font-size:var(--text-base);line-height:1.7;background:var(--color-bg);color:var(--color-text)}
+    img,svg{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+    h1,h2,h3{font-family:var(--font-display);line-height:1.08;margin:0}
+    p{text-wrap:pretty;max-width:72ch}
+    .skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;z-index:999;background:var(--color-surface);padding:.75rem}
+    .container{width:min(calc(100% - 2rem),var(--content));margin-inline:auto}
+    .narrow{width:min(calc(100% - 2rem),var(--content-narrow));margin-inline:auto}
+
+    /* ─── HEADER ─── */
+    .site-header{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--color-bg) 84%,transparent);border-bottom:1px solid var(--color-divider)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 0}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand-mark{width:40px;height:40px;color:var(--color-primary)}
+    .brand-title{font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:var(--text-sm)}
+    .brand-sub{font-size:var(--text-xs);color:var(--color-text-muted);line-height:1.2}
+    nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:1.25rem;padding:0;margin:0}
+    nav a{font-size:var(--text-sm);color:var(--color-text-muted);transition:color .18s}
+    nav a:hover,nav a:focus-visible{color:var(--color-primary)}
+    .theme-btn{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--color-border);border-radius:var(--radius-full);background:var(--color-surface)}
+
+    /* ─── HERO ─── */
+    .hero{padding:clamp(3rem,7vw,6rem) 0 clamp(3rem,6vw,5rem)}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:end}
+    .eyebrow{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.14em;color:var(--color-primary);margin-bottom:1rem}
+    h1{font-size:var(--text-3xl);max-width:12ch}
+    .lead{font-size:var(--text-lg);color:var(--color-text-muted);max-width:44ch;margin-top:1.25rem}
+    .hero-aside{background:linear-gradient(160deg,var(--color-surface),var(--color-surface-2));border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:2rem;box-shadow:var(--shadow-md)}
+    .pullquote{font-family:var(--font-display);font-size:var(--text-xl);line-height:1.2;margin:0 0 1rem}
+    .aside-note{font-size:var(--text-sm);color:var(--color-text-muted);margin:0}
+
+    /* ─── SECTIONS ─── */
+    main section{padding:clamp(3rem,6vw,5rem) 0;border-top:1px solid var(--color-divider)}
+    .sec-head{display:grid;grid-template-columns:.75fr 1.25fr;gap:2rem;align-items:start;margin-bottom:2rem}
+    .sec-head p{margin:0;color:var(--color-text-muted)}
+    h2{font-size:var(--text-xl)}
+
+    /* ─── FACTS ─── */
+    .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .fact{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:1.5rem}
+    .fact strong{display:block;font-family:var(--font-display);font-size:var(--text-xl);margin-bottom:.5rem;line-height:1.1}
+
+    /* ─── TIMELINE ─── */
+    .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .t-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:1.5rem}
+    .t-year{font-size:var(--text-xs);letter-spacing:.1em;text-transform:uppercase;color:var(--color-primary);margin-bottom:.5rem}
+    .t-card h3{font-size:var(--text-base);margin-bottom:.5rem}
+    .t-card p{margin:0;color:var(--color-text-muted);font-size:var(--text-sm)}
+
+    /* ─── POETS ─── */
+    .poets{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .poet-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:1.5rem;display:flex;flex-direction:column;gap:.75rem}
+    .poet-card h3{font-size:var(--text-lg)}
+    .poet-card p{margin:0;color:var(--color-text-muted);font-size:var(--text-sm)}
+    .poet-link{color:var(--color-primary);font-size:var(--text-sm);margin-top:auto}
+    .poet-link:hover{text-decoration:underline}
+
+    /* ─── ANTHOLOGY ─── */
+    .anthology{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+    .poem{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:1.75rem}
+    .poem-meta{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-primary);margin-bottom:.75rem}
+    .poem h3{font-size:var(--text-lg);margin-bottom:.75rem}
+    .poem pre{font-family:var(--font-display);font-size:var(--text-base);white-space:pre-line;margin:0;line-height:1.8}
+
+    /* ─── TAG ─── */
+    .tag{display:inline-flex;padding:.3rem .75rem;border-radius:var(--radius-full);background:var(--color-primary-highlight);color:var(--color-primary);font-size:var(--text-xs);width:max-content}
+
+    /* ─── CTA ─── */
+    .cta-panel{background:linear-gradient(130deg,var(--color-surface),var(--color-primary-highlight));border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:2rem;display:grid;grid-template-columns:1.3fr .7fr;gap:2rem;align-items:center}
+    .cta-panel p{margin:.75rem 0 0;color:var(--color-text-muted)}
+    .btn{display:inline-flex;align-items:center;height:44px;padding:0 1.5rem;border-radius:var(--radius-full);background:var(--color-primary);color:#fff;font-size:var(--text-sm);font-weight:700;border:none;cursor:pointer;transition:background .18s}
+    .btn:hover{background:var(--color-primary-hover)}
+
+    /* ─── SOURCES ─── */
+    .sources-list{list-style:none;padding:0;margin:2rem 0 0;display:grid;gap:.75rem}
+    .sources-list li{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:1.25rem}
+    .sources-list a{color:var(--color-primary)}
+    .sources-list a:hover{text-decoration:underline}
+
+    /* ─── FOOTER ─── */
+    footer{padding:3rem 0 4rem;color:var(--color-text-muted)}
+    .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:980px){.hero-grid,.sec-head,.cta-panel{grid-template-columns:1fr}.facts,.timeline,.poets,.anthology{grid-template-columns:1fr 1fr}}
+    @media(max-width:680px){nav{display:none}.facts,.timeline,.poets,.anthology{grid-template-columns:1fr}h1{max-width:100%}}
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip">Перейти к содержанию</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 64 64" fill="none" aria-label="Логотип Родник">
+          <path d="M32 6C22 18 16 26 16 36c0 9 7.2 16 16 16s16-7 16-16C48 26 42 18 32 6Z" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M22 38c3 3 6 4 10 4s7-1 10-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="32" cy="34" r="3.5" fill="currentColor"/>
+        </svg>
+        <div>
+          <div class="brand-title">Родник</div>
+          <div class="brand-sub">литературное объединение · г. Майский</div>
+        </div>
+      </div>
+      <nav aria-label="Главное меню">
+        <ul>
+          <li><a href="#about">Об объединении</a></li>
+          <li><a href="#history">История</a></li>
+          <li><a href="#poets">Авторы</a></li>
+          <li><a href="#anthology">Стихи</a></li>
+          <li><a href="#sources">Источники</a></li>
+        </ul>
+      </nav>
+      <button class="theme-btn" data-theme-toggle aria-label="Сменить тему">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Поэзия · Память · Майский</div>
+          <h1>Литературное объединение «Родник»</h1>
+          <p class="lead">Объединение поэтов при центральной библиотеке города Майского. Здесь хранят голос родного края, историческую память и живое слово участников.</p>
+        </div>
+        <aside class="hero-aside">
+          <p class="pullquote">«Свет творчества, любовь ко всему сущему и чистота помыслов объединяют людей слова»</p>
+          <p class="aside-note">Творческие встречи · коллективные сборники · поэтическая память района</p>
+        </aside>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="sec-head">
+          <h2>Об объединении</h2>
+          <p>Литературное объединение «Родник» действует при центральной библиотеке города Майского. Его участники выступают на городских мероприятиях, ведут краеведческую работу, издают коллективные сборники и поддерживают живой диалог с другими литературными сообществами.</p>
+        </div>
+        <div class="facts">
+          <div class="fact"><strong>г. Майский</strong>Площадка — центральная библиотека города</div>
+          <div class="fact"><strong>2018</strong>Встреча с объединением «Литературный перекрёсток»</div>
+          <div class="fact"><strong>4+</strong>Коллективных сборника с именами участников</div>
+          <div class="fact"><strong>690+</strong>Произведений Людмилы Бариевой на Стихи.ру</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="history">
+      <div class="container">
+        <div class="sec-head">
+          <h2>История</h2>
+          <p>Биографии участников и материалы встреч позволяют восстановить хронологию активной жизни объединения. Этот раздел можно расширять, добавляя архивные фотографии и статьи из местных газет.</p>
+        </div>
+        <div class="timeline">
+          <article class="t-card">
+            <div class="t-year">2016</div>
+            <h3>Активный состав</h3>
+            <p>В биографических данных Людмилы Бариевой прямо зафиксировано членство в «Роднике» при центральной библиотеке г. Майского.</p>
+          </article>
+          <article class="t-card">
+            <div class="t-year">2017</div>
+            <h3>Коллективные сборники</h3>
+            <p>Выходят коллективные издания «Майские зори», «Майский родник», «Под сенью Пушкинского дуба» и «Священная память» с текстами участников.</p>
+          </article>
+          <article class="t-card">
+            <div class="t-year">2018</div>
+            <h3>Литературный диалог</h3>
+            <p>В центральной библиотеке Майского прошла встреча «Родника» с объединением «Литературный перекрёсток», подтверждающая открытый формат объединения.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- POETS -->
+    <section id="poets">
+      <div class="container">
+        <div class="sec-head">
+          <h2>Авторы</h2>
+          <p>Карточки авторов можно добавлять по мере сбора биографий и разрешений на публикацию. Каждая карточка ведёт на отдельную страницу автора в папке <code>poets/</code>.</p>
+        </div>
+        <div class="poets">
+          <article class="poet-card">
+            <span class="tag">Поэтесса</span>
+            <h3>Людмила Ивановна Бариева</h3>
+            <p>Активный член объединения «Родник», автор собственных поэтических сборников, песен и участник четырёх коллективных изданий Майского.</p>
+            <a class="poet-link" href="poets/barieva.html">Страница автора →</a>
+          </article>
+          <article class="poet-card">
+            <span class="tag">Коллективная память</span>
+            <h3>Авторы сборников</h3>
+            <p>В изданиях «Майские зори» и «Майский родник» участвовали несколько поэтов объединения. Добавьте карточки авторов, используя биографии из архива библиотеки.</p>
+          </article>
+          <article class="poet-card">
+            <span class="tag">Добавьте автора</span>
+            <h3>Место для нового поэта</h3>
+            <p>Скопируйте файл <code>poets/barieva.html</code>, заполните биографию и добавьте страницу в этот раздел. Подробности — в README.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANTHOLOGY -->
+    <section id="anthology">
+      <div class="container">
+        <div class="sec-head">
+          <h2>Поэтическая антология</h2>
+          <p>Стартовые тексты раздела — оригинальные стихи в духе тематики объединения. Заменяйте их на подтверждённые авторские произведения участников по мере сбора разрешений.</p>
+        </div>
+        <div class="anthology">
+          <article class="poem">
+            <div class="poem-meta">Тема · Библиотека</div>
+            <h3>В читальном зале</h3>
+            <pre>Под лампой тёплой шепчутся страницы,
+И тихий вечер держится в окне.
+Здесь слово учит сердцу не боиться,
+А памяти — не гаснуть в тишине.</pre>
+          </article>
+          <article class="poem">
+            <div class="poem-meta">Тема · Родник</div>
+            <h3>Голос Майского</h3>
+            <pre>Где сад шумит и солнце льётся низко,
+Где путь домой знаком до мелочей,
+Там слово, словно родниковый брызг,
+Становится светлее и теплей.</pre>
+          </article>
+          <article class="poem">
+            <div class="poem-meta">Тема · Поэты</div>
+            <h3>Круг поэтов</h3>
+            <pre>Не громкой славы ищет наша строчка,
+Не спорит с ветром, не спешит звенеть.
+Она хранит простую правду точно —
+Любить свой край, беречь его и петь.</pre>
+          </article>
+          <article class="poem">
+            <div class="poem-meta">Редакторская рекомендация</div>
+            <h3>Как заполнить раздел</h3>
+            <pre>Добавьте стихи участников объединения,
+укажите автора и дату публикации,
+получите согласие на размещение.
+Так сайт станет живым архивом.</pre>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOURCES -->
+    <section id="sources">
+      <div class="narrow">
+        <div class="sec-head" style="grid-template-columns:1fr;gap:1rem">
+          <h2>Источники</h2>
+          <p>Сведения, использованные при создании сайта, с прямыми ссылками для проверки.</p>
+        </div>
+        <ul class="sources-list">
+          <li>
+            <strong>Людмила Бариева 2 · Стихи.ру</strong> — биографический текст с прямым указанием на членство в объединении «Родник» при центральной библиотеке г. Майского, перечнем книг и коллективных сборников.<br>
+            <a href="https://stihi.ru/avtor/barievalydmila" target="_blank" rel="noopener noreferrer">stihi.ru/avtor/barievalydmila</a>
+          </li>
+          <li>
+            <strong>Ольга Ступенькова, «Свет творчества объединяет» · Проза.ру (2021)</strong> — статья с описанием встречи «Родника» и «Литературного перекрёстка» в 2018 году в центральной библиотеке Майского.<br>
+            <a href="https://proza.ru/2021/11/04/1325" target="_blank" rel="noopener noreferrer">proza.ru/2021/11/04/1325</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <span>Литературное объединение «Родник» · г. Майский</span>
+      <span>rodnik.github.io</span>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var root=document.documentElement,btn=document.querySelector('[data-theme-toggle]');
+      var d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+      root.setAttribute('data-theme',d);
+      function render(){btn.innerHTML=d==='dark'?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';}
+      render();
+      btn.addEventListener('click',function(){d=d==='dark'?'light':'dark';root.setAttribute('data-theme',d);render();});
+    })();
+  </script>
+</body>
+</html>
