@@ -5,3 +5,6 @@
 .scene-snow {
   display: none !important;
 }
+.scene-trees::before {
+  display: none !important;
+}
