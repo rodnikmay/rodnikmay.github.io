@@ -1,1 +1,735 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#163f49"><title>«Родник» — литературная карта Майского</title><link rel="stylesheet" href="style.css"></head><body><div class="site-scene" aria-hidden="true"><div class="scene-sky"></div><div class="scene-sun"></div><div class="scene-moon"></div><div class="scene-mountains"></div><div class="scene-snow"></div><div class="scene-clouds"><i></i><i></i><i></i></div><div class="scene-trees"></div><div class="scene-river"></div></div><header class="hero"><div class="wrap hero-content"><span class="eyebrow">Майский · Кабардино-Балкария · с 1972 года</span><h1>Творческое объединение «Родник»</h1><p>Литературное объединение города Майского: люди, встречи и стихи, в которых слышны родные места.</p><div class="actions"><a class="btn light" href="poets/index.html">Открыть каталог авторов</a><a class="btn outline" href="#about">Что такое «Родник»</a></div></div></header><nav class="site-nav"><div class="wrap nav-panel"><div class="nav-links"><a href="index.html">Главная</a><a href="history.html">История</a><a href="poets/index.html">Наши поэты</a><a href="creativity.html">Творчество</a></div><div class="tools"><button class="theme-toggle" data-theme aria-label="Сменить тему"><span class="theme-icon">☀</span><span>Попробуй для вдохновения</span></button></div></div></nav><main class="wrap section"><section class="card reveal" id="about"><span class="tag">Город · горы · вода · слово</span><h2>О чём этот сайт</h2><p>«Родник» — творческое объединение поэтов и любителей литературы города Майского. Оно было создано в 1972 году и связано с культурной работой библиотеки имени А. С. Пушкина.</p><p>Здесь собраны история объединения, имена авторов, сведения о встречах, книги и поэтические материалы.</p><div class="stats"><div class="stat"><strong>1972</strong><small>год основания</small></div><div class="stat"><strong>12</strong><small>встреч в 2022 году</small></div><div class="stat"><strong>45</strong><small>лет руководства Р. Дьяковой</small></div></div></section><section class="card reveal"><h2>Литературная карта</h2><div class="grid"><a class="tile" href="history.html"><span class="tag">Исток</span><h3>История объединения</h3><p>От создания «Родника» до сегодняшней литературной жизни Майского.</p></a><a class="tile" href="poets/index.html"><span class="tag">Люди</span><h3>Наши авторы</h3><p>Карточки поэтов и участников, чьи имена связаны с объединением.</p></a><a class="tile" href="creativity.html"><span class="tag">Слово</span><h3>Творчество</h3><p>Книги, сборники, встречи и темы произведений.</p></a></div></section><section class="card reveal"><h2>Автор дня</h2><div class="author-card"><div><span class="tag">Случайный выбор</span><h3 id="authorName">Загрузка автора…</h3><p id="authorInfo" class="muted">Выберите автора из каталога «Родника».</p><span id="authorNumber" class="muted"></span></div><div class="actions"><button id="authorButton" class="btn small" type="button">Другой автор</button><a id="authorLink" class="btn small outline" href="poets/index.html">Открыть карточку</a></div></div></section><section class="card reveal"><h2>Поэтический компас</h2><p>Небольшая подборка мыслей для вдохновения. Нажмите кнопку, если не знаете, о чём написать.</p><div class="prompt-box"><strong>Попробуйте написать о…</strong><div id="promptText">городе, который просыпается рядом с рекой</div></div><p><button class="btn small" data-prompt="#promptText" type="button">Другая мысль ✦</button></p></section><section class="card reveal"><h2>От истока к читателю</h2><p>Объединение соединяет авторов, библиотеку и жителей города: здесь рождаются новые тексты, обсуждаются книги и сохраняется литературная память Майского.</p><div class="notice">«Родник» — это место встречи людей и слов. Сайт будет пополняться биографиями, фотографиями и произведениями после проверки оригиналов.</div></section></main><button class="btn to-top" aria-label="Наверх">↑</button><footer><div class="wrap">Творческое объединение «Родник» · город Майский</div></footer><script src="poets/data.js"></script><script src="app.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="ru" data-theme="night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Запорожское слово — девять заповедей</title>
+<style>
+  :root{
+    --gold:240 201 106; --gold-hi:#ffe9ad; --gold-lo:#8f6d22;
+    --blue:74 134 255; --blue-deep:#16295e;
+    --ink:#efe9da; --ink-dim:#9c9485;
+    --dust:#f0c96a;
+    --bg:
+      radial-gradient(900px 520px at 50% -12%, rgb(74 134 255/.16), transparent 62%),
+      radial-gradient(720px 420px at 88% 112%, rgb(74 134 255/.10), transparent 60%),
+      radial-gradient(620px 360px at 8% 100%, rgb(240 201 106/.07), transparent 60%),
+      linear-gradient(180deg,#04060d,#070b18 55%,#03050c);
+    --card-bg:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.014));
+    --card-border:rgb(240 201 106/.24);
+    --shadow:0 18px 40px rgba(0,0,0,.45);
+    --shadow-deep:0 26px 54px rgba(0,0,0,.55);
+    --shadow-img:0 24px 70px rgba(0,0,0,.65);
+    --frame-shadow:0 40px 120px rgba(0,0,0,.72);
+    --inset-hi:inset 0 1px 0 rgba(255,255,255,.06);
+    --title-grad:linear-gradient(100deg,#8f6d22 0%,#f7d98b 22%,#fff6d8 38%,#f7d98b 52%,#8f6d22 78%);
+    --num-grad:linear-gradient(180deg,#ffe9ad 8%,#f0c96a 46%,#a97f28 96%);
+    --fill-grad:linear-gradient(90deg,#8f6d22,#f0c96a);
+    --frame-bg:linear-gradient(180deg,#0a0f1e,#060913);
+    --cmd-color:#fdf4de; --cmd-hi:#ffffff;
+    --track-bg:rgba(255,255,255,.1);
+    --stage-bg:rgba(3,5,12,.8);
+  }
+  [data-theme="day"]{
+    --gold:168 122 24; --gold-hi:#7a5a10; --gold-lo:#8a6a12;
+    --blue:60 110 220; --blue-deep:#2c4a9e;
+    --ink:#33291a; --ink-dim:#7a6f58;
+    --dust:#c8a54a;
+    --bg:
+      radial-gradient(900px 520px at 50% -12%, rgb(60 110 220/.12), transparent 62%),
+      radial-gradient(720px 420px at 88% 112%, rgb(60 110 220/.10), transparent 60%),
+      radial-gradient(620px 360px at 8% 100%, rgb(180 140 40/.18), transparent 60%),
+      linear-gradient(180deg,#f8f2e2,#efe6d2 55%,#e6d9c2);
+    --card-bg:linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,255,255,.4));
+    --card-border:rgb(168 122 24/.35);
+    --shadow:0 18px 40px rgba(120,90,30,.22);
+    --shadow-deep:0 26px 54px rgba(120,90,30,.3);
+    --shadow-img:0 24px 60px rgba(120,90,30,.35);
+    --frame-shadow:0 40px 90px rgba(120,90,30,.4);
+    --inset-hi:inset 0 1px 0 rgba(255,255,255,.9);
+    --title-grad:linear-gradient(100deg,#6e520d 0%,#b8922a 22%,#8a6a12 38%,#b8922a 52%,#6e520d 78%);
+    --num-grad:linear-gradient(180deg,#e0c068 8%,#b08a20 46%,#7a5a10 96%);
+    --fill-grad:linear-gradient(90deg,#8a6a12,#e0c068);
+    --frame-bg:linear-gradient(180deg,#fbf7ec,#f1e8d6);
+    --cmd-color:#4a3a18; --cmd-hi:#1f1808;
+    --track-bg:rgba(0,0,0,.12);
+    --stage-bg:rgba(240,230,210,.55);
+  }
+  [data-theme="dnieper"]{
+    --gold:240 201 106; --gold-hi:#ffe9ad; --gold-lo:#8f6d22;
+    --blue:110 200 255; --blue-deep:#123a6e;
+    --ink:#e6eefb; --ink-dim:#8fa5c8;
+    --dust:#ffd77a;
+    --bg:
+      radial-gradient(900px 520px at 50% -12%, rgb(110 200 255/.18), transparent 62%),
+      radial-gradient(720px 420px at 88% 112%, rgb(110 200 255/.12), transparent 60%),
+      radial-gradient(620px 360px at 8% 100%, rgb(240 201 106/.06), transparent 60%),
+      linear-gradient(180deg,#02101f,#061a33 55%,#020b18);
+    --card-bg:linear-gradient(180deg, rgba(140,210,255,.07), rgba(140,210,255,.02));
+    --card-border:rgb(110 200 255/.3);
+    --shadow:0 18px 40px rgba(0,8,25,.5);
+    --shadow-deep:0 26px 54px rgba(0,8,25,.6);
+    --shadow-img:0 24px 70px rgba(0,8,25,.6);
+    --frame-shadow:0 40px 120px rgba(0,8,25,.7);
+    --inset-hi:inset 0 1px 0 rgba(180,220,255,.1);
+    --title-grad:linear-gradient(100deg,#8f6d22 0%,#f7d98b 22%,#fff6d8 38%,#f7d98b 52%,#8f6d22 78%);
+    --num-grad:linear-gradient(180deg,#ffe9ad 8%,#f0c96a 46%,#a97f28 96%);
+    --fill-grad:linear-gradient(90deg,#8f6d22,#f0c96a);
+    --frame-bg:linear-gradient(180deg,#06182e,#030f20);
+    --cmd-color:#f4f0e0; --cmd-hi:#ffffff;
+    --track-bg:rgba(140,200,255,.14);
+    --stage-bg:rgba(2,8,20,.8);
+  }
+  [data-theme="vecherka"]{
+    --gold:255 140 90; --gold-hi:#ffd0a8; --gold-lo:#93341a;
+    --blue:255 84 44; --blue-deep:#7e1e0e;
+    --ink:#f5e6d8; --ink-dim:#b08a72;
+    --dust:#ffab66;
+    --bg:
+      radial-gradient(900px 520px at 50% -12%, rgb(255 140 60/.14), transparent 62%),
+      radial-gradient(720px 420px at 88% 112%, rgb(255 120 50/.10), transparent 60%),
+      radial-gradient(620px 360px at 8% 100%, rgb(255 170 90/.08), transparent 60%),
+      linear-gradient(180deg,#120502,#1c0b05 55%,#0d0402);
+    --card-bg:linear-gradient(180deg, rgba(255,170,110,.06), rgba(255,170,110,.02));
+    --card-border:rgb(255 140 90/.28);
+    --shadow:0 18px 40px rgba(20,4,0,.55);
+    --shadow-deep:0 26px 54px rgba(20,4,0,.6);
+    --shadow-img:0 24px 70px rgba(20,4,0,.6);
+    --frame-shadow:0 40px 120px rgba(20,4,0,.65);
+    --inset-hi:inset 0 1px 0 rgba(255,200,150,.08);
+    --title-grad:linear-gradient(100deg,#8a2c10 0%,#ffb066 22%,#ffe0b0 38%,#ffb066 52%,#8a2c10 78%);
+    --num-grad:linear-gradient(180deg,#ffd0a8 8%,#ff8a4a 46%,#a03c12 96%);
+    --fill-grad:linear-gradient(90deg,#8a2c10,#ffb066);
+    --frame-bg:linear-gradient(180deg,#1e0d06,#120703);
+    --cmd-color:#ffe0b0; --cmd-hi:#ffffff;
+    --track-bg:rgba(255,180,130,.14);
+    --stage-bg:rgba(15,4,1,.8);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    height:100vh;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Georgia","Times New Roman",serif;
+    display:flex; flex-direction:column; align-items:center;
+    padding:26px 20px 22px;
+    overflow:hidden;
+  }
+
+  /* ambient layers */
+  #dust{ position:fixed; inset:0; z-index:0; pointer-events:none }
+  #glow{
+    position:fixed; top:0; left:0; width:640px; height:640px; z-index:0;
+    pointer-events:none; mix-blend-mode:screen;
+    background:radial-gradient(circle, rgb(var(--blue)/.13), rgb(var(--gold)/.06) 38%, transparent 68%);
+    transform:translate(-2000px,-2000px);
+    transition:transform .55s ease-out;
+  }
+  .wrap{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; width:100%; flex:1 }
+
+  header{text-align:center; margin-bottom:12px}
+  h1{
+    font-size:clamp(28px,4.5vw,52px); font-weight:700; margin:0 0 8px;
+    letter-spacing:.1em;
+    background:var(--title-grad);
+    background-size:260% 100%;
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:titleIn 1.1s cubic-bezier(.2,.9,.25,1) backwards, shimmer 7s linear 1.2s infinite;
+  }
+  @keyframes titleIn{ from{ opacity:0; transform:translateY(26px); letter-spacing:.3em } }
+  @keyframes shimmer{ 0%{background-position:0%} 100%{background-position:260%} }
+  .sub{
+    color:var(--ink-dim); font-size:16px; margin:0; line-height:1.55;
+    animation:fadeUp .9s .35s ease backwards;
+  }
+  .divider{
+    display:flex; align-items:center; gap:14px;
+    width:min(560px,72vw); margin:14px auto 0;
+    animation:fadeUp .9s .5s ease backwards;
+  }
+  .divider .line{ flex:1; height:1px }
+  .divider .line:first-child{ background:linear-gradient(90deg,transparent,rgb(var(--gold)/.8)) }
+  .divider .line:last-child{ background:linear-gradient(90deg,rgb(var(--gold)/.8),transparent) }
+  .divider .gem{ color:var(--gold); font-size:13px; text-shadow:0 0 14px rgb(var(--gold)/.9); animation:gemPulse 2.6s ease-in-out infinite }
+  @keyframes gemPulse{ 0%,100%{ transform:scale(1) } 50%{ transform:scale(1.35) } }
+  @keyframes fadeUp{ from{ opacity:0; transform:translateY(20px) } }
+  .reset{
+    display:inline-block; margin-top:12px; padding:6px 16px;
+    border:1px solid rgb(var(--gold)/.4); border-radius:999px;
+    background:rgb(var(--gold)/.06); color:var(--gold);
+    font-family:inherit; font-size:13px; cursor:pointer; letter-spacing:.05em;
+    animation:fadeUp .9s .65s ease backwards;
+    transition:background .25s, box-shadow .25s;
+  }
+  .reset:hover{ background:rgb(var(--gold)/.16); box-shadow:0 0 18px rgb(var(--gold)/.25) }
+
+  .themes{ display:flex; gap:6px; margin-top:12px; animation:fadeUp .9s .75s ease backwards }
+  .tbtn{
+    width:34px; height:34px; border-radius:50%; padding:0;
+    border:1px solid rgb(var(--gold)/.35); background:rgb(var(--gold)/.05);
+    font-size:15px; line-height:1; cursor:pointer;
+    filter:grayscale(.55); opacity:.7;
+    transition:background .2s, box-shadow .2s, transform .2s, filter .2s, opacity .2s;
+  }
+  .tbtn:hover{ transform:translateY(-2px); background:rgb(var(--gold)/.16); box-shadow:0 0 12px rgb(var(--gold)/.3); filter:none; opacity:1 }
+  .tbtn.active{ border-color:rgb(var(--gold)/.85); background:rgb(var(--gold)/.2); box-shadow:0 0 14px rgb(var(--gold)/.4); filter:none; opacity:1 }
+
+  .board{
+    display:grid; grid-template-columns:repeat(2,1fr);
+    grid-template-rows:repeat(5,minmax(0,1fr));
+    gap:clamp(12px,1.8vw,22px); width:100%; max-width:1560px; margin:0 auto;
+    flex:1 1 auto; min-height:0;
+  }
+  @media (max-width:560px){
+    .board{grid-template-columns:1fr; max-width:420px; grid-template-rows:none; flex-grow:0}
+    .cell{ aspect-ratio:1/1 }
+    .cell.header{ aspect-ratio:auto }
+  }
+  .cell.header{ cursor:auto }
+  .cell.header::before{ display:none }
+  .cell.header:hover{ transform:none; border-color:var(--card-border); box-shadow:var(--shadow), var(--inset-hi) }
+  .cell.header h1{ margin:0 0 4px; font-size:clamp(20px,2.6vw,36px) }
+  .cell.header .sub{ font-size:13px }
+  .cell.header .divider{ margin:8px auto 0 }
+  .cell.header .reset{ margin-top:8px; padding:4px 14px }
+  .cell.header .progress{ margin-top:8px; display:flex; align-items:center; gap:12px; width:min(340px,72%) }
+  .cell.header .pbar{ flex:1; height:4px; border-radius:4px; background:var(--track-bg); overflow:hidden }
+  .cell.header .pbar i{ display:block; height:100%; width:0%; background:var(--fill-grad); box-shadow:0 0 10px rgb(var(--gold)/.8); transition:width .7s cubic-bezier(.2,.9,.25,1) }
+  .cell.header .pcnt{ font-size:12px; color:var(--ink-dim); letter-spacing:.12em; white-space:nowrap }
+  @media (max-height:800px){
+    .cell.header .divider{ display:none }
+  }
+
+  .cell{
+    position:relative; min-width:0; border-radius:24px;
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    box-shadow:var(--shadow), var(--inset-hi);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    cursor:pointer; overflow:hidden;
+    container-type:size;
+    animation:cardIn .85s cubic-bezier(.2,.9,.25,1) backwards;
+    transition:transform .3s cubic-bezier(.2,.9,.25,1), border-color .3s, box-shadow .3s;
+  }
+  @keyframes cardIn{ from{ opacity:0; transform:translateY(36px) scale(.94) } }
+  .cell:hover{
+    transform:translateY(-7px) scale(1.02);
+    border-color:rgb(var(--gold)/.8);
+    box-shadow:0 0 22px rgb(var(--gold)/.22), 0 0 60px rgb(var(--blue)/.16), var(--shadow-deep);
+  }
+  .cell:active{ transform:translateY(-3px) scale(.985) }
+  .cell::before{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:linear-gradient(115deg, transparent 32%, rgba(255,255,255,.07) 44%, rgba(255,244,214,.18) 50%, rgba(255,255,255,.07) 56%, transparent 68%);
+    transform:translateX(-101%);
+    transition:transform .9s ease;
+  }
+  .cell:hover::before{ transform:translateX(101%) }
+
+  .num{
+    font-size:clamp(50px,min(13vh,10vw),132px);
+    font-size:min(62cqh,32cqw,128px);
+    line-height:1.15; margin:auto; padding:.1em 0 .2em;
+    background:var(--num-grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:numPulse 3.4s ease-in-out infinite;
+  }
+  @keyframes numPulse{
+    0%,100%{ filter:drop-shadow(0 0 10px rgb(var(--gold)/.35)) }
+    50%{ filter:drop-shadow(0 0 26px rgb(var(--gold)/.7)) drop-shadow(0 0 46px rgb(var(--blue)/.3)) }
+  }
+  .cell.done{
+    padding:14px 16px 16px;
+    background:linear-gradient(180deg, rgb(var(--gold)/.14), rgb(var(--blue)/.09) 55%, rgb(var(--gold)/.05));
+    border-color:rgb(var(--gold)/.55);
+    box-shadow:0 0 18px rgb(var(--gold)/.12), var(--shadow);
+    display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+    text-align:center;
+  }
+  .cell.done .label{
+    color:var(--gold); font-weight:700; letter-spacing:.24em;
+    text-shadow:0 0 16px rgb(var(--gold)/.8);
+    animation:cmdIn .55s ease both;
+    margin:0;
+    font-size:clamp(14px, min(12cqh,1.8vw), 22px);
+  }
+  .cell.done .cmd{
+    font-weight:700; line-height:1.3;
+    color:var(--cmd-color);
+    text-shadow:0 0 20px rgb(var(--gold)/.28);
+    animation:cmdIn .7s .1s ease both;
+    margin:auto 0;
+    font-size:clamp(18px, min(14cqh,2.3vw), 30px);
+  }
+  @keyframes cmdIn{ from{ opacity:0; transform:translateY(12px) } }
+  .cell.done:hover .cmd{ color:var(--cmd-hi) }
+
+  /* stage */
+  .stage{
+    position:fixed; inset:0; display:none;
+    align-items:center; justify-content:center;
+    padding:22px;
+    background:var(--stage-bg);
+    backdrop-filter:blur(10px) saturate(1.15);
+    z-index:50;
+  }
+  .stage.open{ display:flex; animation:stageIn .3s ease both }
+  @keyframes stageIn{ from{ opacity:0 } }
+  .frame{
+    width:min(94vw,1100px);
+    display:flex; flex-direction:column;
+    border-radius:22px; border:1px solid rgb(var(--gold)/.4);
+    background:var(--frame-bg);
+    box-shadow:0 0 0 1px rgb(var(--blue)/.16), var(--frame-shadow), 0 0 55px rgb(var(--gold)/.14);
+    animation:pop .42s cubic-bezier(.2,.9,.3,1.25) both, frameGlow 4.5s ease-in-out .5s infinite;
+  }
+  @keyframes pop{ from{ transform:scale(.9); opacity:0 } }
+  @keyframes frameGlow{
+    0%,100%{ box-shadow:0 0 0 1px rgb(var(--blue)/.16), var(--frame-shadow), 0 0 55px rgb(var(--gold)/.14) }
+    50%{ box-shadow:0 0 0 1px rgb(var(--blue)/.3), var(--frame-shadow), 0 0 80px rgb(var(--gold)/.26) }
+  }
+  .bar{
+    display:flex; align-items:center; gap:14px;
+    padding:12px 18px; border-bottom:1px solid rgb(var(--gold)/.18);
+  }
+  .bar .t{
+    font-size:19px; font-weight:700; letter-spacing:.05em;
+    background:var(--title-grad);
+    background-size:260% 100%;
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:shimmer 7s linear infinite;
+  }
+  .close{
+    margin-left:auto; width:34px; height:34px; border-radius:50%;
+    border:1px solid rgb(var(--gold)/.4); background:rgb(var(--gold)/.08);
+    color:var(--gold); font-size:16px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s, box-shadow .2s;
+  }
+  .close:hover{ background:rgb(var(--gold)/.22); box-shadow:0 0 14px rgb(var(--gold)/.35) }
+
+  .media{
+    width:min(100%, calc((100vh - 310px) * 16 / 9));
+    margin:0 auto; aspect-ratio:16/9; background:#000;
+  }
+  .media video{ display:block; width:100%; height:100%; object-fit:contain; cursor:pointer }
+  .placeholder{
+    width:100%; height:100%; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:10px; color:var(--ink-dim);
+  }
+  .placeholder .big{ font-size:58px; animation:phPulse 2.2s ease-in-out infinite }
+  @keyframes phPulse{ 0%,100%{ opacity:.35; transform:scale(1) } 50%{ opacity:.75; transform:scale(1.12) } }
+  .placeholder .hint{ font-size:14px; letter-spacing:.05em }
+
+  .controls{
+    display:flex; align-items:center; gap:12px;
+    padding:12px 16px; border-top:1px solid rgb(var(--gold)/.14);
+  }
+  .bar-progress{
+    flex:1; height:6px; border-radius:6px;
+    background:var(--track-bg); cursor:pointer; overflow:hidden;
+  }
+  .bar-progress .fill{
+    height:100%; width:0%;
+    background:var(--fill-grad);
+    box-shadow:0 0 10px rgb(var(--gold)/.8);
+  }
+  .btn{
+    min-width:32px; height:32px; border-radius:50%;
+    border:1px solid rgb(var(--blue)/.45); background:rgb(var(--blue)/.12);
+    color:var(--gold); cursor:pointer; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s, box-shadow .2s;
+  }
+  .btn:hover{ background:rgb(var(--blue)/.26); box-shadow:0 0 12px rgb(var(--blue)/.4) }
+
+  .cap{ padding:16px 22px 20px; text-align:center }
+  .cap .c1{
+    font-size:clamp(19px,2.4vw,26px); font-weight:700; line-height:1.35;
+    color:var(--gold-hi);
+    text-shadow:0 0 24px rgb(var(--gold)/.35);
+  }
+  .cap .c2{ color:var(--ink-dim); font-size:15px; line-height:1.65; margin-top:6px }
+
+  .imgbox{ padding:18px 22px; display:flex; justify-content:center; align-items:center; }
+  .imgbox img{
+    max-width:100%; max-height:calc(100vh - 270px);
+    width:auto; height:auto; display:block;
+    border-radius:12px;
+    box-shadow:0 0 0 1px rgb(var(--gold)/.4), var(--shadow-img), 0 0 44px rgb(var(--blue)/.14);
+    cursor:pointer;
+    animation:imgIn .55s cubic-bezier(.2,.9,.25,1) both;
+  }
+  @keyframes imgIn{ from{ opacity:0; transform:scale(.94) } }
+
+  .meteor{
+    position:fixed; z-index:0; pointer-events:none;
+    width:260px; height:2px; border-radius:2px; opacity:0;
+    background:linear-gradient(90deg, rgb(var(--gold)/0), rgb(var(--gold)/.8) 70%, var(--gold-hi));
+    animation:meteorFly 1.7s linear forwards;
+  }
+  @keyframes meteorFly{
+    0%{ opacity:0; transform:translate(var(--sx),var(--sy)) rotate(38deg) }
+    12%{ opacity:1 }
+    100%{ opacity:0; transform:translate(calc(var(--sx) + 60vw), calc(var(--sy) + 45vw)) rotate(38deg) }
+  }
+
+  .credit{
+    position:relative; z-index:1; text-align:center;
+    margin-top:10px;
+    color:var(--ink-dim); font-size:13px; letter-spacing:.08em; line-height:1.6;
+  }
+  .credit .sep{ color:var(--gold) }
+
+  @media (hover:hover) and (pointer:fine){
+    *{ cursor:none !important }
+  }
+  #sabre{
+    position:fixed; top:0; left:0; z-index:100; display:none;
+    pointer-events:none; will-change:transform;
+    filter:drop-shadow(0 0 5px rgb(var(--gold)/.75)) drop-shadow(0 2px 4px rgba(0,0,0,.5));
+  }
+  #sabre svg{ overflow:visible; transform-origin:2px 2px; transition:transform .12s }
+  #sabre.down svg{ transform:scale(.85) }
+  #fx{ position:fixed; inset:0; z-index:99; pointer-events:none }
+</style>
+</head>
+<body>
+  <canvas id="dust"></canvas>
+  <div id="glow"></div>
+  <canvas id="fx"></canvas>
+  <div id="sabre"><svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">
+    <defs><linearGradient id="sb" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff6d8"/><stop offset=".55" stop-color="#f0c96a"/><stop offset="1" stop-color="#a97f28"/>
+    </linearGradient></defs>
+    <path d="M2 2 C 9 9, 19 20, 26 29 L 23 32 C 16 24, 7 13, 2 2 Z" fill="url(#sb)" stroke="#8f6d22" stroke-width="1"/>
+    <path d="M4 4 C 10 10, 17 19, 23 26" stroke="rgba(255,255,255,.75)" stroke-width="1" fill="none"/>
+    <path d="M21 33 L 28 26" stroke="#f0c96a" stroke-width="3" stroke-linecap="round"/>
+    <path d="M25 29.5 L 32 36.5" stroke="#5d4514" stroke-width="3.4" stroke-linecap="round"/>
+    <circle cx="33.5" cy="38" r="2" fill="#f0c96a" stroke="#8f6d22" stroke-width=".7"/>
+  </svg></div>
+
+  <div class="wrap">
+    <div class="board" id="board" aria-label="Девять заповедей"></div>
+  </div>
+
+  <footer class="credit">Ольга Коновалова <span class="sep">•</span> МКУК Библиотека им. А. С. Пушкина, г. Майского <span class="sep">•</span> 2026</footer>
+
+  <div class="stage" id="stage">
+    <div class="frame" id="frame"></div>
+  </div>
+
+<script>
+const DATA = [
+  {cmd:'Честь и доброе имя казака дороже жизни',
+   pv:['Казак честь не кинет, хоть головушка сгинет','Лучше глаза лишиться, чем доброго имени']},
+  {cmd:'Казаки все равны в правах',
+   pv:['В кулаке все пальцы равны','Была бы голова, будет и булава']},
+  {cmd:'Люби Родину, служи преданно своему народу',
+   pv:['Береги землю родимую – как мать любимую','Казак скорей умрёт, чем с родной земли уйдёт']},
+  {cmd:'Держи слово, слово казака дорого',
+   pv:['Казан проверяют по звону, казака – по слову','Кто слову верен, тот и в деле надёжен']},
+  {cmd:'Чти старших, уважай старость',
+   pv:['Господа старики – первейшие казаки','Кто старших уважает, тому Бог помогает']},
+  {cmd:'Держись веры предков, поступай по обычаям своего народа',
+   pv:['Казаком быть – Богу служить','Недолго той земле стоять, где начнут устои ломать']},
+  {cmd:'Погибай, а товарища выручай',
+   pv:['Дружба и братство дороже богатства','Казак за казака горой стоит']},
+  {cmd:'Будь трудолюбив, не бездействуй',
+   pv:['Казачья земля дармоедов не кормит','От безделья не бывает у казака веселья']},
+  {cmd:'Береги семью свою, служи ей примером',
+   pv:['Согласную семью горе не берёт','За морем теплее, а в дому своём светлее']},
+];
+
+const THEMES = { night:'🌙', day:'☀️', dnieper:'💙', vecherka:'🔥' };
+let TC = { gold:'240,201,106', blue:'74,134,255', dust:'#f0c96a' };
+
+function readThemeColors(){
+  const cs = getComputedStyle(document.documentElement);
+  TC.gold = cs.getPropertyValue('--gold').trim().replace(/\s+/g, ',');
+  TC.blue = cs.getPropertyValue('--blue').trim().replace(/\s+/g, ',');
+  TC.dust = cs.getPropertyValue('--dust').trim() || '#f0c96a';
+}
+
+function setTheme(t){
+  if(!THEMES[t]){ t='night'; }
+  document.documentElement.dataset.theme = t;
+  const meta = document.querySelector('meta[name="color-scheme"]');
+  if(meta){ meta.content = t==='day' ? 'light' : 'dark'; }
+  readThemeColors();
+  try{ localStorage.setItem('cossack-theme', t); }catch(e){}
+  document.querySelectorAll('.tbtn').forEach(b=>b.classList.toggle('active', b.dataset.theme===t));
+}
+
+const board = document.getElementById('board');
+const stage = document.getElementById('stage');
+const frame = document.getElementById('frame');
+const done = new Set();
+let openState = null; // {type:'video'|'image', n}
+let activeVideo = null;
+
+function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function buildBoard(){
+  const h=document.createElement('div');
+  h.className='cell header done';
+  h.dataset.n=0;
+  h.innerHTML=`<h1>Запорожское слово</h1><p class="sub">Девять заповедей казака. Нажми на номер — прозвучит слово.</p><div class="divider"><span class="line"></span><span class="gem">✦</span><span class="line"></span></div><button class="reset" id="resetBtn" type="button">Начать заново</button><div class="themes" role="group" aria-label="Тема оформления"><button class="tbtn" data-theme="night" type="button" title="Ночь">🌙</button><button class="tbtn" data-theme="day" type="button" title="День">☀️</button><button class="tbtn" data-theme="dnieper" type="button" title="Днепр">💙</button><button class="tbtn" data-theme="vecherka" type="button" title="Вечерка">🔥</button></div><div class="progress"><div class="pbar"><i id="pfill"></i></div><span class="pcnt" id="pcnt">0 / 9</span></div>`;
+  board.appendChild(h);
+  for(let i=1;i<=9;i++){
+    const c=document.createElement('div');
+    c.className='cell';
+    c.dataset.n=i;
+    c.style.animationDelay = (120 + i*80) + 'ms';
+    renderCell(c,i);
+    c.addEventListener('click',()=>onCell(i));
+    board.appendChild(c);
+  }
+}
+
+function renderCell(c,i){
+  if(i===0){ return; }
+  c.style.animationDelay='0ms';
+  if(done.has(i)){
+    c.classList.add('done');
+    c.innerHTML=`<div class="label">✦ ЗАПОВЕДЬ ${i} ✦</div><div class="cmd">${esc(DATA[i-1].cmd)}</div>`;
+  }else{
+    c.classList.remove('done');
+    c.innerHTML=`<div class="num">${i}</div>`;
+  }
+}
+
+function resetAll(){
+  done.clear();
+  board.querySelectorAll('.cell').forEach(c=>renderCell(c, +c.dataset.n));
+  updateProgress();
+}
+
+function updateProgress(){
+  const bar=document.getElementById('pfill');
+  const cnt=document.getElementById('pcnt');
+  if(bar){ bar.style.width=(done.size/9*100)+'%'; }
+  if(cnt){ cnt.textContent=done.size+' / 9'; }
+}
+
+function onCell(i){
+  if(done.has(i)){ openImage(i); }
+  else{ openVideo(i); }
+}
+
+function closePlayer(){
+  const n = openState ? openState.n : null;
+  if(openState && openState.type==='video'){
+    done.add(openState.n);
+    const c=board.querySelector(`.cell[data-n="${openState.n}"]`);
+    if(c){ const r=c.getBoundingClientRect(); fx(r.left+r.width/2, r.top+r.height/2, 70, 3); }
+  }
+  if(activeVideo){ try{activeVideo.pause();}catch(e){} activeVideo=null; }
+  openState=null;
+  stage.classList.remove('open');
+  frame.innerHTML='';
+  if(n!=null){
+    const c = board.querySelector(`.cell[data-n="${n}"]`);
+    if(c){ renderCell(c, n); }
+  }
+  updateProgress();
+}
+
+function captionHTML(i){
+  return `<div class="cap"><div class="c1">${esc(DATA[i-1].cmd)}</div>` +
+    DATA[i-1].pv.map(p=>`<div class="c2">— «${esc(p)}»</div>`).join('') + `</div>`;
+}
+
+function openVideo(i){
+  openState={type:'video', n:i};
+  frame.innerHTML='';
+  const bar=document.createElement('div'); bar.className='bar';
+  bar.innerHTML=`<div class="t">Заповедь ${i}</div><button class="close" aria-label="закрыть">✕</button>`;
+
+  const media=document.createElement('div'); media.className='media';
+  const video=document.createElement('video');
+  video.src=`Видео/${i}.mp4`;
+  video.playsInline=true; video.preload='auto';
+  media.appendChild(video);
+
+  const controls=document.createElement('div'); controls.className='controls';
+  const prog=document.createElement('div'); prog.className='bar-progress';
+  const fill=document.createElement('div'); fill.className='fill';
+  prog.appendChild(fill);
+  const btnPlay=document.createElement('button'); btnPlay.className='btn'; btnPlay.textContent='⏸';
+  const btnMute=document.createElement('button'); btnMute.className='btn'; btnMute.textContent='🔊';
+  controls.appendChild(prog); controls.appendChild(btnPlay); controls.appendChild(btnMute);
+
+  const capDiv=document.createElement('div'); capDiv.innerHTML=captionHTML(i);
+  frame.appendChild(bar); frame.appendChild(media); frame.appendChild(controls);
+  frame.appendChild(capDiv.firstElementChild);
+  stage.classList.add('open');
+
+  activeVideo=video;
+  const togglePlay=()=>{
+    if(video.ended){ video.currentTime=0; video.play().catch(()=>{}); btnPlay.textContent='⏸'; }
+    else if(video.paused){ video.play().catch(()=>{}); btnPlay.textContent='⏸'; }
+    else{ video.pause(); btnPlay.textContent='▶'; }
+  };
+  video.addEventListener('click',togglePlay);
+  btnPlay.addEventListener('click',togglePlay);
+  btnMute.addEventListener('click',()=>{ video.muted=!video.muted; btnMute.textContent=video.muted?'🔇':'🔊'; });
+  prog.addEventListener('click',(e)=>{
+    const r=prog.getBoundingClientRect(); const ratio=(e.clientX-r.left)/r.width;
+    if(video.duration){ video.currentTime=ratio*video.duration; }
+  });
+  video.addEventListener('timeupdate',()=>{
+    if(video.duration){ fill.style.width=(video.currentTime/video.duration*100)+'%'; }
+  });
+  video.addEventListener('ended',()=>{ btnPlay.textContent='↺'; btnPlay.title='повтор'; });
+  video.addEventListener('error',()=>{
+    activeVideo=null;
+    media.innerHTML='';
+    const ph=document.createElement('div'); ph.className='placeholder';
+    ph.innerHTML=`<div class="big">🎬</div><div>Видео ещё готовится</div><div class="hint">здесь скоро прозвучит слово</div>`;
+    media.appendChild(ph);
+    controls.style.display='none';
+  });
+  video.play().catch(()=>{});
+}
+
+function openImage(i){
+  openState={type:'image', n:i};
+  frame.innerHTML='';
+  const bar=document.createElement('div'); bar.className='bar';
+  bar.innerHTML=`<div class="t">Заповедь ${i}</div><button class="close" aria-label="закрыть">✕</button>`;
+  const imgbox=document.createElement('div'); imgbox.className='imgbox';
+  const img=document.createElement('img');
+  img.src=`знаменитые казаки/Слайд${i}.JPG`;
+  img.alt=`Слайд ${i}`;
+  imgbox.appendChild(img);
+  img.addEventListener('click',()=>closePlayer());
+  const capDiv=document.createElement('div'); capDiv.innerHTML=captionHTML(i);
+  frame.appendChild(bar); frame.appendChild(imgbox); frame.appendChild(capDiv.firstElementChild);
+  stage.classList.add('open');
+}
+
+stage.addEventListener('click',(e)=>{
+  if(e.target===stage){ closePlayer(); }
+});
+frame.addEventListener('click',(e)=>{
+  if(e.target.closest('.close')){ closePlayer(); }
+});
+document.addEventListener('keydown',(e)=>{
+  if(e.key==='Escape'){ closePlayer(); }
+});
+
+/* ---- golden dust ---- */
+(function(){
+  const cv=document.getElementById('dust');
+  const cx=cv.getContext('2d');
+  let W,H,parts=[];
+  function resize(){ W=cv.width=innerWidth; H=cv.height=innerHeight; }
+  addEventListener('resize',resize); resize();
+  function spawn(init){
+    return {
+      x:Math.random()*W,
+      y:init? Math.random()*H : H+12,
+      s:Math.random()*1.9+.5,
+      vy:-(Math.random()*.28+.08),
+      vx:(Math.random()-.5)*.22,
+      a:Math.random()*.55+.18,
+      tw:Math.random()*Math.PI*2
+    };
+  }
+  for(let i=0;i<80;i++) parts.push(spawn(true));
+  function tick(){
+    cx.clearRect(0,0,W,H);
+    for(let i=0;i<parts.length;i++){
+      const p=parts[i];
+      p.y+=p.vy; p.x+=p.vx; p.tw+=.021;
+      if(p.y<-12){ p.y=H+12; p.x=Math.random()*W; }
+      cx.globalAlpha=Math.max(.04, p.a*(.55+.45*Math.sin(p.tw)));
+      cx.fillStyle=TC.dust;
+      cx.beginPath(); cx.arc(p.x,p.y,p.s,0,7); cx.fill();
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+
+/* ---- cursor glow ---- */
+(function(){
+  const g=document.getElementById('glow');
+  addEventListener('pointermove',(e)=>{
+    g.style.transform=`translate(${e.clientX-320}px, ${e.clientY-320}px)`;
+  });
+})();
+
+/* ---- gold fx particles ---- */
+const fx=(function(){
+  const cv=document.getElementById('fx');
+  const cx=cv.getContext('2d');
+  let W,H;
+  function rs(){ W=cv.width=innerWidth; H=cv.height=innerHeight; }
+  addEventListener('resize',rs); rs();
+  const sp=[];
+  function fire(x,y,n,pow){
+    for(let i=0;i<n;i++){
+      if(sp.length>300){ sp.shift(); }
+      const a=Math.random()*Math.PI*2, v=(Math.random()*.55+.45)*pow;
+      sp.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1,d:.03+Math.random()*.05,c:Math.random()<.5?TC.gold:TC.blue});
+    }
+  }
+  function tick(){
+    cx.clearRect(0,0,W,H);
+    for(let i=sp.length-1;i>=0;i--){
+      const p=sp[i]; p.l-=p.d; p.x+=p.vx; p.y+=p.vy; p.vx*=.93; p.vy=p.vy*.93+.02;
+      if(p.l<=0){ sp.splice(i,1); continue; }
+      cx.globalAlpha=p.l; cx.fillStyle=`rgba(${p.c},1)`;
+      cx.beginPath(); cx.arc(p.x,p.y,p.l*1.6+.3,0,7); cx.fill();
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  return fire;
+})();
+
+/* ---- sabre cursor ---- */
+(function(){
+  const sabre=document.getElementById('sabre');
+  if(!matchMedia('(hover:hover) and (pointer:fine)').matches){ return; }
+  sabre.style.display='block';
+  let lx=0,ly=0;
+  addEventListener('pointermove',(e)=>{
+    const x=e.clientX,y=e.clientY;
+    sabre.style.transform=`translate(${x-2}px, ${y-2}px)`;
+    if(Math.abs(x-lx)+Math.abs(y-ly)>7){ fx(x,y,1,.6); lx=x; ly=y; }
+  });
+  addEventListener('pointerdown',(e)=>{ fx(e.clientX,e.clientY,8,1.5); sabre.classList.add('down'); });
+  addEventListener('pointerup',()=>sabre.classList.remove('down'));
+  document.addEventListener('mouseout',(e)=>{ if(!e.relatedTarget){ sabre.style.opacity='0'; } });
+  document.addEventListener('mouseover',(e)=>{ if(!e.relatedTarget){ sabre.style.opacity='1'; } });
+})();
+
+/* ---- meteors ---- */
+(function(){
+  function shoot(){
+    const m=document.createElement('div');
+    m.className='meteor';
+    m.style.setProperty('--sx', (-10+Math.random()*55)+'vw');
+    m.style.setProperty('--sy', (-15+Math.random()*55)+'vh');
+    document.body.appendChild(m);
+    setTimeout(()=>m.remove(),1800);
+  }
+  (function loop(){ setTimeout(()=>{ shoot(); loop(); }, 2500+Math.random()*4000); })();
+})();
+
+buildBoard();
+document.getElementById('resetBtn').addEventListener('click',resetAll);
+updateProgress();
+
+let savedTheme='night';
+try{ savedTheme = localStorage.getItem('cossack-theme') || 'night'; }catch(e){}
+setTheme(savedTheme);
+document.querySelectorAll('.tbtn').forEach(b=>b.addEventListener('click',()=>setTheme(b.dataset.theme)));
+</script>
+</body>
+</html>
