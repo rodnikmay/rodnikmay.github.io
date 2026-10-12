@@ -146,7 +146,7 @@
     animation:fadeUp .9s .35s ease backwards;
   }
    @keyframes fadeUp{ from{ opacity:0; transform:translateY(20px) } }
-    .themes{ display:flex; flex-wrap:nowrap; align-items:center; justify-content:center; gap:6px; margin-top:8px; animation:fadeUp .9s .65s ease backwards }
+    .themes{ display:flex; flex-wrap:nowrap; align-items:center; justify-content:center; gap:6px; animation:fadeUp .9s .65s ease backwards }
     .reset{
       width:30px; height:30px; border-radius:50%; padding:0;
       border:1px solid rgb(var(--gold)/.35); background:rgb(var(--gold)/.05);
@@ -183,7 +183,7 @@
    .cell.header h1{ margin:0 0 3px; font-size:clamp(18px,2.3vw,32px) }
    .cell.header .sub{ font-size:12px }
 
-   .cell.header .progress{ margin-top:6px; display:flex; align-items:center; gap:12px; width:min(340px,72%) }
+    .cell.header .progress{ display:flex; align-items:center; gap:12px; width:min(340px,72%) }
    .cell.header .pbar{ flex:1; height:4px; border-radius:4px; background:var(--track-bg); overflow:hidden }
    .cell.header .pbar i{ display:block; height:100%; width:0%; background:var(--fill-grad); box-shadow:0 0 10px rgb(var(--gold)/.8); transition:width .7s cubic-bezier(.2,.9,.25,1) }
    .cell.header .pcnt{ font-size:12px; color:var(--ink-dim); letter-spacing:.12em; white-space:nowrap }
@@ -252,15 +252,15 @@
   @keyframes cmdIn{ from{ opacity:0; transform:translateY(12px) } }
    .cell.done:hover .cmd{ color:var(--cmd-hi) }
 
-   .cell.header{ padding:10px 14px }
+    .cell.header{ padding:10px 14px; justify-content:space-evenly }
    @media (max-width:560px){
      .cell.header{ padding:6px 10px }
      .cell.header h1{ margin:0; font-size:clamp(11px,3.2vw,15px); line-height:1.1 }
      .cell.header .sub{ display:none }
-     .cell.header .reset{ width:20px; height:20px; font-size:11px }
-     .cell.header .themes{ margin-top:2px; gap:4px }
-     .cell.header .tbtn{ width:20px; height:20px; font-size:11px }
-     .cell.header .progress{ margin-top:2px; width:100%; gap:8px }
+      .cell.header .reset{ width:20px; height:20px; font-size:11px }
+      .cell.header .themes{ gap:4px }
+      .cell.header .tbtn{ width:20px; height:20px; font-size:11px }
+      .cell.header .progress{ width:100%; gap:8px }
      .cell.header .pcnt{ font-size:10px }
    }
 
