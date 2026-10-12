@@ -64,15 +64,14 @@
   .divider .gem{ color:var(--gold); font-size:13px; text-shadow:0 0 14px rgba(240,201,106,.9); animation:gemPulse 2.6s ease-in-out infinite }
   @keyframes gemPulse{ 0%,100%{ transform:scale(1) } 50%{ transform:scale(1.35) } }
   @keyframes fadeUp{ from{ opacity:0; transform:translateY(20px) } }
-  .reset{
-    display:inline-block; margin-top:12px; padding:6px 16px;
-    border:1px solid rgba(240,201,106,.4); border-radius:999px;
-    background:rgba(240,201,106,.06); color:var(--gold);
-    font-family:inherit; font-size:13px; cursor:pointer; letter-spacing:.05em;
-    animation:fadeUp .9s .65s ease backwards;
-    transition:background .25s, box-shadow .25s;
-  }
-  .reset:hover{ background:rgba(240,201,106,.16); box-shadow:0 0 18px rgba(240,201,106,.25) }
+   .reset{
+     width:34px; height:34px; border-radius:50%; padding:0;
+     border:1px solid rgba(240,201,106,.35); background:rgba(240,201,106,.05);
+     color:var(--gold); font-family:inherit; font-size:15px; line-height:1; cursor:pointer;
+     animation:fadeUp .9s .65s ease backwards;
+     transition:background .25s, box-shadow .25s, transform .25s;
+   }
+   .reset:hover{ background:rgba(240,201,106,.16); box-shadow:0 0 18px rgba(240,201,106,.25); transform:translateY(-2px) }
 
   .board{
     display:grid; grid-template-columns:repeat(2,1fr);
@@ -266,7 +265,7 @@
       <h1>Запорожское слово</h1>
       <p class="sub">Девять заповедей казака. Нажми на номер — прозвучит слово.</p>
       <div class="divider"><span class="line"></span><span class="gem">✦</span><span class="line"></span></div>
-      <button class="reset" id="resetBtn" type="button">Начать заново</button>
+      <button class="reset" id="resetBtn" type="button" title="Начать заново" aria-label="Начать заново">🔁</button>
     </header>
 
     <div class="board" id="board" aria-label="Девять заповедей"></div>

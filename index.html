@@ -156,17 +156,14 @@
   .divider .gem{ color:var(--gold); font-size:13px; text-shadow:0 0 14px rgb(var(--gold)/.9); animation:gemPulse 2.6s ease-in-out infinite }
   @keyframes gemPulse{ 0%,100%{ transform:scale(1) } 50%{ transform:scale(1.35) } }
   @keyframes fadeUp{ from{ opacity:0; transform:translateY(20px) } }
-  .reset{
-    display:inline-block; margin-top:12px; padding:6px 16px;
-    border:1px solid rgb(var(--gold)/.4); border-radius:999px;
-    background:rgb(var(--gold)/.06); color:var(--gold);
-    font-family:inherit; font-size:13px; cursor:pointer; letter-spacing:.05em;
-    animation:fadeUp .9s .65s ease backwards;
-    transition:background .25s, box-shadow .25s;
-  }
-  .reset:hover{ background:rgb(var(--gold)/.16); box-shadow:0 0 18px rgb(var(--gold)/.25) }
-
-  .themes{ display:flex; gap:6px; margin-top:12px; animation:fadeUp .9s .75s ease backwards }
+   .themes{ display:flex; flex-wrap:nowrap; align-items:center; justify-content:center; gap:6px; margin-top:12px; animation:fadeUp .9s .65s ease backwards }
+   .reset{
+     width:34px; height:34px; border-radius:50%; padding:0;
+     border:1px solid rgb(var(--gold)/.35); background:rgb(var(--gold)/.05);
+     color:var(--gold); font-family:inherit; font-size:15px; line-height:1; cursor:pointer;
+     transition:background .25s, box-shadow .25s, transform .25s;
+   }
+   .reset:hover{ background:rgb(var(--gold)/.16); box-shadow:0 0 18px rgb(var(--gold)/.25); transform:translateY(-2px) }
   .tbtn{
     width:34px; height:34px; border-radius:50%; padding:0;
     border:1px solid rgb(var(--gold)/.35); background:rgb(var(--gold)/.05);
@@ -193,7 +190,7 @@
     .cell.header h1{ margin:0; font-size:clamp(11px,3.2vw,15px); line-height:1.1 }
     .cell.header .sub{ display:none }
     .cell.header .divider{ display:none }
-    .cell.header .reset{ margin-top:2px; padding:2px 8px; font-size:10px }
+    .cell.header .reset{ width:22px; height:22px; font-size:12px }
     .cell.header .themes{ margin-top:2px; gap:4px }
     .cell.header .tbtn{ width:22px; height:22px; font-size:12px }
     .cell.header .progress{ margin-top:2px; width:100%; gap:8px }
@@ -205,7 +202,7 @@
   .cell.header h1{ margin:0 0 4px; font-size:clamp(20px,2.6vw,36px) }
   .cell.header .sub{ font-size:13px }
   .cell.header .divider{ margin:8px auto 0 }
-  .cell.header .reset{ margin-top:8px; padding:4px 14px }
+
   .cell.header .progress{ margin-top:8px; display:flex; align-items:center; gap:12px; width:min(340px,72%) }
   .cell.header .pbar{ flex:1; height:4px; border-radius:4px; background:var(--track-bg); overflow:hidden }
   .cell.header .pbar i{ display:block; height:100%; width:0%; background:var(--fill-grad); box-shadow:0 0 10px rgb(var(--gold)/.8); transition:width .7s cubic-bezier(.2,.9,.25,1) }
@@ -488,7 +485,7 @@ function buildBoard(){
   const h=document.createElement('div');
   h.className='cell header done';
   h.dataset.n=0;
-  h.innerHTML=`<h1>Запорожское слово</h1><p class="sub">Девять заповедей казака. Нажми на номер — прозвучит слово.</p><div class="divider"><span class="line"></span><span class="gem">✦</span><span class="line"></span></div><button class="reset" id="resetBtn" type="button">Начать заново</button><div class="themes" role="group" aria-label="Тема оформления"><button class="tbtn" data-theme="night" type="button" title="Ночь">🌙</button><button class="tbtn" data-theme="day" type="button" title="День">☀️</button><button class="tbtn" data-theme="dnieper" type="button" title="Днепр">💙</button><button class="tbtn" data-theme="vecherka" type="button" title="Вечерка">🔥</button></div><div class="progress"><div class="pbar"><i id="pfill"></i></div><span class="pcnt" id="pcnt">0 / 9</span></div>`;
+  h.innerHTML=`<h1>Запорожское слово</h1><p class="sub">Девять заповедей казака. Нажми на номер — прозвучит слово.</p><div class="divider"><span class="line"></span><span class="gem">✦</span><span class="line"></span></div><div class="themes" role="group" aria-label="Кнопки управления"><button class="reset" id="resetBtn" type="button" title="Начать заново" aria-label="Начать заново">🔁</button><button class="tbtn" data-theme="night" type="button" title="Ночь">🌙</button><button class="tbtn" data-theme="day" type="button" title="День">☀️</button><button class="tbtn" data-theme="dnieper" type="button" title="Днепр">💙</button><button class="tbtn" data-theme="vecherka" type="button" title="Вечерка">🔥</button></div><div class="progress"><div class="pbar"><i id="pfill"></i></div><span class="pcnt" id="pcnt">0 / 9</span></div>`;
   board.appendChild(h);
   for(let i=1;i<=9;i++){
     const c=document.createElement('div');
