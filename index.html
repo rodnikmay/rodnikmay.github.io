@@ -145,29 +145,19 @@
     color:var(--ink-dim); font-size:16px; margin:0; line-height:1.55;
     animation:fadeUp .9s .35s ease backwards;
   }
-  .divider{
-    display:flex; align-items:center; gap:14px;
-    width:min(560px,72vw); margin:14px auto 0;
-    animation:fadeUp .9s .5s ease backwards;
-  }
-  .divider .line{ flex:1; height:1px }
-  .divider .line:first-child{ background:linear-gradient(90deg,transparent,rgb(var(--gold)/.8)) }
-  .divider .line:last-child{ background:linear-gradient(90deg,rgb(var(--gold)/.8),transparent) }
-  .divider .gem{ color:var(--gold); font-size:13px; text-shadow:0 0 14px rgb(var(--gold)/.9); animation:gemPulse 2.6s ease-in-out infinite }
-  @keyframes gemPulse{ 0%,100%{ transform:scale(1) } 50%{ transform:scale(1.35) } }
-  @keyframes fadeUp{ from{ opacity:0; transform:translateY(20px) } }
-   .themes{ display:flex; flex-wrap:nowrap; align-items:center; justify-content:center; gap:6px; margin-top:12px; animation:fadeUp .9s .65s ease backwards }
-   .reset{
-     width:34px; height:34px; border-radius:50%; padding:0;
-     border:1px solid rgb(var(--gold)/.35); background:rgb(var(--gold)/.05);
-     color:var(--gold); font-family:inherit; font-size:15px; line-height:1; cursor:pointer;
+   @keyframes fadeUp{ from{ opacity:0; transform:translateY(20px) } }
+    .themes{ display:flex; flex-wrap:nowrap; align-items:center; justify-content:center; gap:6px; margin-top:8px; animation:fadeUp .9s .65s ease backwards }
+    .reset{
+      width:30px; height:30px; border-radius:50%; padding:0;
+      border:1px solid rgb(var(--gold)/.35); background:rgb(var(--gold)/.05);
+      color:var(--gold); font-family:inherit; font-size:14px; line-height:1; cursor:pointer;
      transition:background .25s, box-shadow .25s, transform .25s;
    }
    .reset:hover{ background:rgb(var(--gold)/.16); box-shadow:0 0 18px rgb(var(--gold)/.25); transform:translateY(-2px) }
-  .tbtn{
-    width:34px; height:34px; border-radius:50%; padding:0;
-    border:1px solid rgb(var(--gold)/.35); background:rgb(var(--gold)/.05);
-    font-size:15px; line-height:1; cursor:pointer;
+   .tbtn{
+     width:30px; height:30px; border-radius:50%; padding:0;
+     border:1px solid rgb(var(--gold)/.35); background:rgb(var(--gold)/.05);
+     font-size:14px; line-height:1; cursor:pointer;
     filter:grayscale(.55); opacity:.7;
     transition:background .2s, box-shadow .2s, transform .2s, filter .2s, opacity .2s;
   }
@@ -180,36 +170,23 @@
     gap:clamp(12px,1.8vw,22px); width:100%; max-width:1560px; margin:0 auto;
     flex:1 1 auto; min-height:0;
   }
-  @media (max-width:560px){
-    body{ padding:16px 12px 14px }
-    .board{
-      grid-template-rows:repeat(5,minmax(0,1fr));
-      max-width:420px;
-    }
-    .cell.header{ padding:8px 10px 10px }
-    .cell.header h1{ margin:0; font-size:clamp(11px,3.2vw,15px); line-height:1.1 }
-    .cell.header .sub{ display:none }
-    .cell.header .divider{ display:none }
-    .cell.header .reset{ width:22px; height:22px; font-size:12px }
-    .cell.header .themes{ margin-top:2px; gap:4px }
-    .cell.header .tbtn{ width:22px; height:22px; font-size:12px }
-    .cell.header .progress{ margin-top:2px; width:100%; gap:8px }
-    .cell.header .pcnt{ font-size:10px }
-  }
-  .cell.header{ cursor:auto }
-  .cell.header::before{ display:none }
-  .cell.header:hover{ transform:none; border-color:var(--card-border); box-shadow:var(--shadow), var(--inset-hi) }
-  .cell.header h1{ margin:0 0 4px; font-size:clamp(20px,2.6vw,36px) }
-  .cell.header .sub{ font-size:13px }
-  .cell.header .divider{ margin:8px auto 0 }
+   @media (max-width:560px){
+     body{ padding:16px 12px 14px }
+     .board{
+       grid-template-rows:repeat(5,minmax(0,1fr));
+       max-width:420px;
+     }
+   }
+   .cell.header{ cursor:auto }
+   .cell.header::before{ display:none }
+   .cell.header:hover{ transform:none; border-color:var(--card-border); box-shadow:var(--shadow), var(--inset-hi) }
+   .cell.header h1{ margin:0 0 3px; font-size:clamp(18px,2.3vw,32px) }
+   .cell.header .sub{ font-size:12px }
 
-  .cell.header .progress{ margin-top:8px; display:flex; align-items:center; gap:12px; width:min(340px,72%) }
-  .cell.header .pbar{ flex:1; height:4px; border-radius:4px; background:var(--track-bg); overflow:hidden }
-  .cell.header .pbar i{ display:block; height:100%; width:0%; background:var(--fill-grad); box-shadow:0 0 10px rgb(var(--gold)/.8); transition:width .7s cubic-bezier(.2,.9,.25,1) }
-  .cell.header .pcnt{ font-size:12px; color:var(--ink-dim); letter-spacing:.12em; white-space:nowrap }
-  @media (max-height:800px){
-    .cell.header .divider{ display:none }
-  }
+   .cell.header .progress{ margin-top:6px; display:flex; align-items:center; gap:12px; width:min(340px,72%) }
+   .cell.header .pbar{ flex:1; height:4px; border-radius:4px; background:var(--track-bg); overflow:hidden }
+   .cell.header .pbar i{ display:block; height:100%; width:0%; background:var(--fill-grad); box-shadow:0 0 10px rgb(var(--gold)/.8); transition:width .7s cubic-bezier(.2,.9,.25,1) }
+   .cell.header .pcnt{ font-size:12px; color:var(--ink-dim); letter-spacing:.12em; white-space:nowrap }
 
   .cell{
     position:relative; min-width:0; border-radius:24px;
@@ -273,7 +250,20 @@
     font-size:clamp(18px, min(14cqh,2.3vw), 30px);
   }
   @keyframes cmdIn{ from{ opacity:0; transform:translateY(12px) } }
-  .cell.done:hover .cmd{ color:var(--cmd-hi) }
+   .cell.done:hover .cmd{ color:var(--cmd-hi) }
+
+   .cell.header{ padding:10px 14px }
+   @media (max-width:560px){
+     .cell.header{ padding:6px 10px }
+     .cell.header h1{ margin:0; font-size:clamp(11px,3.2vw,15px); line-height:1.1 }
+     .cell.header .sub{ display:none }
+     .cell.header .reset{ width:20px; height:20px; font-size:11px }
+     .cell.header .themes{ margin-top:2px; gap:4px }
+     .cell.header .tbtn{ width:20px; height:20px; font-size:11px }
+     .cell.header .progress{ margin-top:2px; width:100%; gap:8px }
+     .cell.header .pcnt{ font-size:10px }
+   }
+
 
   /* stage */
   .stage{
@@ -485,7 +475,7 @@ function buildBoard(){
   const h=document.createElement('div');
   h.className='cell header done';
   h.dataset.n=0;
-  h.innerHTML=`<h1>Запорожское слово</h1><p class="sub">Девять заповедей казака. Нажми на номер — прозвучит слово.</p><div class="divider"><span class="line"></span><span class="gem">✦</span><span class="line"></span></div><div class="themes" role="group" aria-label="Кнопки управления"><button class="reset" id="resetBtn" type="button" title="Начать заново" aria-label="Начать заново">🔁</button><button class="tbtn" data-theme="night" type="button" title="Ночь">🌙</button><button class="tbtn" data-theme="day" type="button" title="День">☀️</button><button class="tbtn" data-theme="dnieper" type="button" title="Днепр">💙</button><button class="tbtn" data-theme="vecherka" type="button" title="Вечерка">🔥</button></div><div class="progress"><div class="pbar"><i id="pfill"></i></div><span class="pcnt" id="pcnt">0 / 9</span></div>`;
+  h.innerHTML=`<h1>Запорожское слово</h1><p class="sub">Девять заповедей казака. Нажми на номер — прозвучит слово.</p><div class="themes" role="group" aria-label="Кнопки управления"><button class="reset" id="resetBtn" type="button" title="Начать заново" aria-label="Начать заново">🔁</button><button class="tbtn" data-theme="night" type="button" title="Ночь">🌙</button><button class="tbtn" data-theme="day" type="button" title="День">☀️</button><button class="tbtn" data-theme="dnieper" type="button" title="Днепр">💙</button><button class="tbtn" data-theme="vecherka" type="button" title="Вечерка">🔥</button></div><div class="progress"><div class="pbar"><i id="pfill"></i></div><span class="pcnt" id="pcnt">0 / 9</span></div>`;
   board.appendChild(h);
   for(let i=1;i<=9;i++){
     const c=document.createElement('div');
