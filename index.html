@@ -239,7 +239,7 @@
     text-shadow:0 0 16px rgb(var(--gold)/.8);
     animation:cmdIn .55s ease both;
     margin:0;
-    font-size:clamp(14px, min(12cqh,1.8vw), 22px);
+    font-size:clamp(11px, min(12cqh,1.8vw), 22px);
   }
   .cell.done .cmd{
     font-weight:700; line-height:1.3;
@@ -247,7 +247,7 @@
     text-shadow:0 0 20px rgb(var(--gold)/.28);
     animation:cmdIn .7s .1s ease both;
     margin:auto 0;
-    font-size:clamp(18px, min(14cqh,2.3vw), 30px);
+    font-size:clamp(13px, min(14cqh,2.3vw), 30px);
   }
   @keyframes cmdIn{ from{ opacity:0; transform:translateY(12px) } }
    .cell.done:hover .cmd{ color:var(--cmd-hi) }
@@ -255,6 +255,7 @@
     .cell.header{ padding:10px 14px; justify-content:space-evenly }
    @media (max-width:560px){
      .cell.header{ padding:6px 10px }
+     .cell.done{ padding:8px 10px }
      .cell.header h1{ margin:0; font-size:clamp(11px,3.2vw,15px); line-height:1.1 }
      .cell.header .sub{ display:none }
       .cell.header .reset{ width:20px; height:20px; font-size:11px }
