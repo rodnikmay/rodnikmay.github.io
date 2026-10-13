@@ -393,15 +393,21 @@
   }
   .btn:hover{ background:rgb(var(--blue)/.26); box-shadow:0 0 12px rgb(var(--blue)/.4) }
 
-  .imgbox{ position:absolute; inset:0; display:flex; justify-content:center; align-items:center; background:#000; }
-  .imgbox img{
-    max-width:100%; max-height:100%;
-    width:auto; height:auto; display:block;
-    border-radius:12px;
-    box-shadow:0 0 0 1px rgb(var(--gold)/.4), var(--shadow-img), 0 0 44px rgb(var(--blue)/.14);
-    cursor:pointer;
-    animation:imgIn .55s cubic-bezier(.2,.9,.25,1) both;
-  }
+   .imgbox{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#000; padding:calc(74px + env(safe-area-inset-top)) 16px 18px; }
+   .imgbox img{
+     max-width:100%; max-height:calc(100% - 70px);
+     width:auto; height:auto; display:block;
+     border-radius:12px;
+     box-shadow:0 0 0 1px rgb(var(--gold)/.4), var(--shadow-img), 0 0 44px rgb(var(--blue)/.14);
+     cursor:pointer;
+     animation:imgIn .55s cubic-bezier(.2,.9,.25,1) both;
+   }
+   .imgbox .cap{
+     margin-top:12px; padding:0 16px; text-align:center;
+     font-size:clamp(15px,2.8vw,28px); font-weight:700; line-height:1.3;
+     color:var(--cmd-color); text-shadow:0 0 14px rgb(var(--gold)/.3);
+     animation:cmdIn .6s .15s ease both;
+   }
   @keyframes imgIn{ from{ opacity:0; transform:scale(.94) } }
 
   .meteor{
@@ -637,6 +643,8 @@ function openImage(i){
   img.src=`знаменитые казаки/Слайд${i}.JPG`;
   img.alt=`Слайд ${i}`;
   imgbox.appendChild(img);
+  const cap=document.createElement('div'); cap.className='cap'; cap.textContent=DATA[i-1].cmd;
+  imgbox.appendChild(cap);
   img.addEventListener('click',()=>closePlayer());
   frame.appendChild(bar); frame.appendChild(imgbox);
   stage.classList.add('open');
