@@ -81,7 +81,32 @@
      --track-bg:rgba(190 200 225,.14);
      --stage-bg:rgba(6,12,22,.8);
    }
-  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+   [data-theme="silver"]{
+     --gold:96 110 130; --gold-hi:#44556e; --gold-lo:#6c7a92;
+     --blue:90 130 200; --blue-deep:#33456b;
+     --ink:#2a3548; --ink-dim:#64748c;
+     --dust:#93a5c2;
+     --bg:
+       radial-gradient(900px 520px at 50% -12%, rgb(116 152 216/.22), transparent 62%),
+       radial-gradient(720px 420px at 88% 112%, rgb(116 152 216/.16), transparent 60%),
+       radial-gradient(620px 360px at 8% 100%, rgb(190 200 215/.35), transparent 60%),
+       linear-gradient(180deg,#e7edf7,#d8e2f0 55%,#cfd9ea);
+     --card-bg:linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.3));
+     --card-border:rgb(96 110 130/.35);
+     --shadow:0 18px 40px rgba(50,70,110,.22);
+     --shadow-deep:0 26px 54px rgba(50,70,110,.3);
+     --shadow-img:0 24px 70px rgba(50,70,110,.35);
+     --frame-shadow:0 40px 120px rgba(50,70,110,.4);
+     --inset-hi:inset 0 1px 0 rgba(255,255,255,.9);
+     --title-grad:linear-gradient(100deg,#33425c 0%,#7e92b5 22%,#44587a 38%,#7e92b5 52%,#33425c 78%);
+     --num-grad:linear-gradient(180deg,#5c6f8e 8%,#44587a 46%,#2e3d56 96%);
+     --fill-grad:linear-gradient(90deg,#44587a,#8fa2c4);
+     --frame-bg:linear-gradient(180deg,#f2f6fc,#e2e9f4);
+     --cmd-color:#33425c; --cmd-hi:#1c2838;
+     --track-bg:rgba(40,60,95,.14);
+     --stage-bg:rgba(232,238,248,.9);
+   }
+   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0}
   button{ touch-action:manipulation }
   body{
@@ -468,7 +493,7 @@ const DATA = [
    pv:['Согласную семью горе не берёт','За морем теплее, а в дому своём светлее']},
 ];
 
-const THEMES = { night:'🌙', day:'☀️', dnieper:'💙' };
+const THEMES = { night:'🌙', day:'☀️', dnieper:'💙', silver:'✨' };
 let TC = { gold:'240,201,106', blue:'74,134,255', dust:'#f0c96a' };
 
 function readThemeColors(){
@@ -501,7 +526,7 @@ function buildBoard(){
   const h=document.createElement('div');
   h.className='cell header done';
   h.dataset.n=0;
-  h.innerHTML=`<h1>Казачьи заповеди</h1><div class="themes" role="group" aria-label="Кнопки управления"><button class="reset" id="resetBtn" type="button" title="Начать заново" aria-label="Начать заново">🔁</button><button class="tbtn" data-theme="night" type="button" title="Ночь">🌙</button><button class="tbtn" data-theme="day" type="button" title="День">☀️</button><button class="tbtn" data-theme="dnieper" type="button" title="Днепр">💙</button></div><div class="words" role="group" aria-label="Казачье наследие"><button class="wbtn" data-word="kitchen" type="button" title="Казачья кухня" aria-label="Казачья кухня">🍞</button><button class="wbtn" data-word="uniform" type="button" title="Казачья форма" aria-label="Казачья форма">🧥</button><button class="wbtn" data-word="song" type="button" title="Казачья песня" aria-label="Казачья песня">🎵</button></div>`;
+  h.innerHTML=`<h1>Казачьи заповеди</h1><div class="themes" role="group" aria-label="Кнопки управления"><button class="reset" id="resetBtn" type="button" title="Начать заново" aria-label="Начать заново">🔁</button><button class="tbtn" data-theme="night" type="button" title="Ночь">🌙</button><button class="tbtn" data-theme="day" type="button" title="День">☀️</button><button class="tbtn" data-theme="dnieper" type="button" title="Днепр">💙</button><button class="tbtn" data-theme="silver" type="button" title="Серебро">✨</button></div><div class="words" role="group" aria-label="Казачье наследие"><button class="wbtn" data-word="kitchen" type="button" title="Казачья кухня" aria-label="Казачья кухня">🍞</button><button class="wbtn" data-word="uniform" type="button" title="Казачья форма" aria-label="Казачья форма">🧥</button><button class="wbtn" data-word="song" type="button" title="Казачья песня" aria-label="Казачья песня">🎵</button></div>`;
   board.appendChild(h);
   for(let i=1;i<=9;i++){
     const c=document.createElement('div');
